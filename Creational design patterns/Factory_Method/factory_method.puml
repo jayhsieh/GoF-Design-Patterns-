@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package Logistic <<Rectangle>> {
+    class Logistics {
+        product
+        factory_method()
+        run_delivery()
+    }
+
+    package subLogistics <<Folder>> {
+        class RoadLogistics {
+        factory_method()
+        }
+
+        class SeaLogistics {
+        factory_method()
+        }
+    }
+}
+
+package Product <<Rectangle>> {
+    abstract class Transport {
+        deliver()
+    }
+
+    package products <<Folder>> {
+        class Truck {
+            deliver()
+        }
+
+        class Ship {
+            deliver()
+        }
+    }
+}
+
+entity main
+
+'繼承關係
+subLogistics --|> Logistics
+
+'實現關係
+products ..|> Transport
+
+'依賴關係
+Transport::deliver <.. Logistics::run_delivery
+Truck <.. RoadLogistics::factory_method
+Ship <.. SeaLogistics::factory_method
+
+'關聯關係
+main --> Logistic
+
+@enduml

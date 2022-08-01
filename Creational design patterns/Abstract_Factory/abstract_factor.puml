@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractFactory {
+    create_product_a(): AbstractProductA
+    create_product_b(): AbstractProductB
+}
+
+class ConcreteFactory1 {
+    create_product_a(): AbstractProductA
+    create_product_b(): AbstractProductB
+}
+
+class ConcreteFactory2 {
+    create_product_a(): AbstractProductA
+    create_product_b(): AbstractProductB
+}
+
+ConcreteFactory1 -down..|> AbstractFactory
+ConcreteFactory2 -up..|> AbstractFactory
+
+abstract class AbstractProductA {
+    useful_function_a()
+}
+
+class ConcreteProductA1 {
+    useful_function_a()
+}
+
+class ConcreteProductA2 {
+    useful_function_a()
+}
+
+ConcreteProductA1 -down..|> AbstractProductA
+ConcreteProductA2 -up..|> AbstractProductA
+ConcreteFactory1 -left..> ConcreteProductA1
+ConcreteFactory1 -left..> ConcreteProductB1
+ConcreteFactory2 -left..> ConcreteProductB2
+ConcreteFactory2 -left..> ConcreteProductA2
+
+abstract class AbstractProductB {
+    useful_function_b()
+    another_useful_function_b()
+}
+
+class ConcreteProductB1 {
+    useful_function_b()
+    another_useful_function_b()
+}
+
+class ConcreteProductB2 {
+    useful_function_b()
+    another_useful_function_b()
+}
+
+ConcreteProductB1 -down..|> AbstractProductB
+ConcreteProductB2 -up..|> AbstractProductB
+
+entity Client
+Client -left--> AbstractFactory
+
+
+@enduml
