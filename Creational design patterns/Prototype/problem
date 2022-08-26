@@ -1,0 +1,12 @@
+Study Case 5.
+
+Prototype 如同孫悟空的毛，可以產生克隆孫悟空
+Prototype 模式提供了自我複製的功能，也就是新物件的創建可以通過已有物件進行創建
+
+=====
+
+實際上 Prototype 模式和 Builder 模式, Abstract Factory 模式都是通過一個類(對象實例)
+來專門負責對象的創見工作(工廠對象)，他們之間的區別是:
+1) Builder 模式重在複雜對象的一步步創建，並不直接返回對象
+2) Abstract Factory 模式重在產生多個互相依賴類的對象
+3) Prototype 模式重在從自身複製自己創建新類

@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package prototypes {
+    abstract class Prototype {
+        clone(): Prototype
+    }
+
+    class BaseStore {
+        id:: int
+        name:: str
+        phone:: str
+    }
+
+    class PrototypeFacebook {
+        id:: int
+        name:: str
+        phone:: str
+        ads:: str
+        clone(): Prototype
+    }
+
+    class PrototypeGoogle {
+        id:: int
+        name:: str
+        phone:: str
+        searchEngine:: str
+        clone(): Prototype
+    }
+}
+
+enum StoreEnum {
+    Google
+    Facebook
+    Amazon
+}
+
+class PrototypeStore {
+    _prototypes
+    add()
+    get()
+}
+
+PrototypeFacebook --|> BaseStore
+PrototypeFacebook ..|> Prototype
+
+PrototypeGoogle --|> BaseStore
+PrototypeGoogle ..|> Prototype
+
+PrototypeStore o--- prototypes
+PrototypeStore -right..> StoreEnum
+
+@enduml
