@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package Cars <<Folder>> {
+    class Car {
+        parts
+        add(part)
+    }
+    class Motorcycle {
+        parts
+        add(part)
+    }
+}
+
+package 工人們 <<Rectangle>> {
+    abstract class Builder_abstract {
+        __product
+        get_product()
+        install_body()
+        install_engine()
+        install_spoiler()
+    }
+
+    package subBuilders <<Folder>> {
+        class CarBuilder {
+            __product
+            reset()
+            get_product()
+            install_body()
+            install_engine()
+            install_spoiler()
+        }
+        class MotorcycleBuilder {
+            __product
+            reset()
+            get_product()
+            install_body()
+            install_engine()
+            install_spoiler()
+        }
+    }
+}
+
+class Director {
+    builder: Builder
+    builder()
+    build_basic_entity()
+    build_sports_entity()
+}
+
+entity client
+
+'實現關係
+subBuilders ..|> Builder_abstract
+
+'關聯關係
+CarBuilder --> Car
+MotorcycleBuilder --> Motorcycle
+Director -right--> 工人們
+client -right--> Director
+client -right--> 工人們
+
+@enduml

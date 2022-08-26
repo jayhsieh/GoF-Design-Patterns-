@@ -1,0 +1,9 @@
+Study Case 4.
+
+=====
+
+(1) Builder 模式強調的是一步步創建對象，並通過相同的創建過程可以獲得不同的結果。Builder 的物件不是直接返回的。
+(2) Abstract Factory 模式中物件是直接返回的，強調的是為創建多個相互依賴的對象提供一個統一的接口
+
+SRP: 複雜的安裝功能都被獨立於 builder 裡面了
+LSP: director.builder 採用 builder 的子類回傳
