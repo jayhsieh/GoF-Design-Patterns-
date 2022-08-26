@@ -1,0 +1,5 @@
+Study Case 3.
+
+=====
+1. Singleton 模式解決問題十分常見，怎樣去創建一個唯一的對象
+2. Singleton 模式經常和 Factory Method (Abstract Factory) 模式在一起使用
